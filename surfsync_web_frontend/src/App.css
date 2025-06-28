@@ -109,18 +109,28 @@ body, html {
   align-items: center;
   gap: 18px;
 }
+/* --- Button Standardization --- */
 .ss-btn, .ss-theme-toggle {
+  /* Oceanic style preserved */
   background: var(--accent) linear-gradient(87deg, #38cbe0 0%, #31bfb3 94%);
   color: #fff;
-  border-radius: 8px;
-  padding: 8px 18px;
-  border: none;
-  font-size: 1.1em;
+  border-radius: 10px;              /* Standardized border */
+  min-width: 140px;                 /* Minimum width for consistency */
+  max-width: 250px;
+  min-height: 44px;                 /* Uniform button height */
+  max-height: 54px;
+  padding: 12px 28px;               /* Standardized padding */
+  font-size: 1.13em;                /* Standardized font size */
   font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
   box-shadow: 0 2px 8px #30bbbb22;
   cursor: pointer;
   transition: background 0.21s, color 0.16s, box-shadow 0.17s;
   outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .ss-btn:focus, .ss-theme-toggle:focus { box-shadow: var(--focus-ring);}
 .ss-btn:hover, .ss-theme-toggle:hover { background: #2271a0; color: #fff6c1; }
@@ -128,18 +138,26 @@ body, html {
 .ss-btn.danger:hover { background: #c53131; color: #fff;}
 
 .ss-bigbtn {
+  /* Standardized with large visual presence */
   background: var(--primary) linear-gradient(90deg, #31bfb3 40%, #3eb2df 100%);
   color: #fff;
   border: none;
   border-radius: 14px;
-  font-size: 1.18em;
+  min-width: 180px;
+  max-width: 340px;
+  min-height: 52px;
+  max-height: 62px;
+  font-size: 1.17em;
   font-weight: 900;
   box-shadow: 0 3px 14px #31bfb342;
-  padding: 16px 40px;
+  padding: 18px 42px;
   transition: background 0.2s, color 0.18s;
   outline: none;
   margin: 13px 0;
   background-blend-mode: multiply;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .ss-bigbtn:hover { background: #2271a0; color:#ffe5bf; }
 
@@ -217,33 +235,92 @@ body, html {
 }
 
 /* --- CARDS LIST --- */
+/* --- Card List, Card, Detail, Modal, Dashboard - Standardization --- */
 .ss-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
-  gap: 38px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 36px;
   margin: 44px auto 26px auto;
   width: 97.5%;
-  max-width: 1070px;
+  max-width: 1120px;
+  justify-content: center;
 }
 
 .ss-card {
   background: var(--card-bg);
-  border-radius: 26px;
-  border: 2px solid var(--border);
+  border-radius: 22px;
+  border: 2.5px solid var(--border);
   box-shadow: var(--card-shadow);
-  padding: 30px 29px 18px 29px;
+  padding: 32px 32px 22px 32px;
+  margin: 0 auto;
   transition: box-shadow 0.17s, border 0.15s, transform 0.11s;
   cursor: pointer;
   outline: none;
-  min-height: 102px;
-  font-size: 1.15em;
+  min-width: 320px;
+  max-width: 415px;
+  min-height: 136px;
+  font-size: 1.12em;
   display: flex;
   flex-direction: column;
-  gap: 17px;
+  gap: 18px;
   background-image: var(--card-overlay), url('https://images.unsplash.com/photo-1452696194006-124909385438?auto=format&fit=crop&w=500&q=80');
   background-size: cover;
   background-blend-mode: lighten;
   border-bottom: 7px solid var(--primary);
+  align-items: stretch;
+}
+
+.ss-card:focus, .ss-card:hover {
+  box-shadow: 0 8px 32px #3eb2dfa1,0 1.5px 0 #31bfb388;
+  border: 2.7px solid var(--accent);
+  transform: translateY(-4px) scale(1.018);
+}
+
+/* --- For Modal/Form/Detail/Dialog Unification --- */
+.ss-detail, .ss-formwrap, .ss-stats {
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  border: 2.2px solid var(--border);
+  max-width: 650px;
+  min-width: 340px;
+  min-height: 206px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 44px 38px 36px 38px;
+  font-size: 1.08em;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-image: var(--ocean-svg-bg), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80');
+  background-size: cover;
+  background-blend-mode: lighten;
+  align-items: stretch;
+}
+
+.ss-formwrap, .ss-detail, .ss-stats {
+  margin-top: 50px;
+  margin-bottom: 22px;
+}
+
+.ss-detail h2, .ss-formwrap h2, .ss-stats h2 {
+  font-size: 1.37em;
+}
+
+.ss-chart-card {
+  background: #f1fafd gen;
+  padding: 26px 27px 12px 27px;
+  border-radius: 16px;
+  box-shadow: 0 3px 13px #48e4e622;
+  border: 1.7px solid var(--primary);
+  margin-bottom: 16px;
+  min-width: 170px;
+  max-width: 330px;
+  min-height: 120px;
+  background: var(--foam);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .ss-card:focus, .ss-card:hover {
   box-shadow: 0 8px 32px #3eb2dfa1,0 1.5px 0 #31bfb388;
@@ -427,9 +504,11 @@ body, html {
 
 .ss-formbtns {
   display: flex;
-  gap: 16px;
-  margin-top: 8px;
+  flex-direction: row;
+  gap: 18px;
+  margin-top: 14px;
   justify-content: flex-end;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -605,18 +684,44 @@ body, html {
   .ss-stats-charts { flex-direction: column; gap: 36px;}
 }
 @media (max-width: 900px) {
-  .ss-cards { grid-template-columns: 1fr; gap: 22px;}
-  .ss-stats { max-width: 97vw !important;}
-  .ss-formwrap, .ss-detail, .ss-chart-card, .ss-filterbar { max-width:97vw !important; min-width:0; padding:14px 5vw;}
+  .ss-cards { grid-template-columns: 1fr; gap: 18px;}
+  .ss-stats { max-width: 99vw !important;}
+  .ss-formwrap, .ss-detail, .ss-chart-card, .ss-filterbar { 
+    max-width: 99vw !important; 
+    min-width: 0; 
+    padding: 12px 4vw 15px 4vw;
+    border-radius: 17px;
+  }
+  .ss-card {
+    min-width: 0;
+    max-width: 99vw;
+    padding: 19px 5vw 10px 5vw;
+  }
 }
 @media (max-width: 650px) {
   .ss-header-row { flex-direction: column; gap: 6px; align-items: flex-start;}
-  .ss-formwrap, .ss-detail, .ss-chart-card, .ss-filterbar, .ss-stats { padding:13px 1.5vw 18px 1.5vw; }
+  .ss-formwrap, .ss-detail, .ss-chart-card, .ss-filterbar, .ss-stats { 
+    padding: 10px 1vw 15px 1vw; 
+    min-width: 0; 
+    border-radius: 14px;
+  }
+  .ss-card {
+    font-size: 0.99em;
+    padding: 11px 2vw 9px 2vw;
+    border-radius: 15px;
+  }
 }
 @media (max-width: 520px) {
-  .ss-formbtns { flex-direction: column; gap: 9px;}
-  .ss-card { padding: 11px 3.5vw; font-size: 1em;}
-  .ss-title, .ss-formwrap h2, .ss-detail h2, .ss-stats h2 { font-size:1.14em;}
+  .ss-formbtns { flex-direction: column; gap: 10px;}
+  .ss-card { 
+    padding: 8px 1vw 6px 1vw; 
+    font-size: 0.93em;
+    min-width: 0;
+    max-width: 99vw;
+    border-radius: 10px;
+  }
+  .ss-title, .ss-formwrap h2, .ss-detail h2, .ss-stats h2 { font-size:1.10em;}
+  .ss-detail, .ss-formwrap, .ss-stats { padding: 8px 0.5vw 12px 0.5vw;}
 }
 
 /* --- Scrollbar and Accessibility --- */
